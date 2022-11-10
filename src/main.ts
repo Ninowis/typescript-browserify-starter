@@ -1,12 +1,10 @@
-import { Person, greet } from "./greeter";
+import { Person, greet } from "./greeter"
 
 const user:Person = {
   firstName: "Guillaume",
   lastName: "Simonin"
 }
 
-function init() {
+export default (function () {
   document.body.textContent = greet(user)
-}
-
-window.addEventListener('load', init, false);
+})()
