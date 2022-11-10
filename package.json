@@ -1,0 +1,35 @@
+{
+  "name": "typescript-kickstarter",
+  "version": "1.0.0",
+  "description": "A Typescript kickstarter project with build, watch and lint tools",
+  "main": "index.html",
+  "repository": "git@github.com:Ninowis/typescript-kickstarter.git",
+  "author": "Guillaume Simonin <guillaume@ninowis.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf ./public/js",
+    "build": "browserify src/main.ts -p tsify -o public/js/main.js",
+    "start": "npm run build && watchify src/main.ts -p tsify -o public/js/main.js -v",
+    "lint": "eslint . --ext .ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "browserify": "^17.0.0",
+    "eslint": "^8.27.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.2",
+    "jest": "^29.3.0",
+    "rimraf": "^3.0.2",
+    "tsify": "^5.0.4",
+    "typescript": "^4.8.4",
+    "watchify": "^4.0.0"
+  }
+}
